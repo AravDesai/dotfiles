@@ -13,7 +13,7 @@
 --    - LEADER + <number>: Switch to a specific tab (0–9).
 
 -- 2. Pane Splitting:
---    - LEADER + |: Split the current pane horizontally into two panes.
+--    - LEADER + [: Split the current pane horizontally into two panes.
 --    - LEADER + -: Split the current pane vertically into two panes.
 -- 3. Pane Navigation:
 --    - LEADER + h: Move to the pane on the left.
@@ -27,7 +27,7 @@
 --    - LEADER + DownArrow: Increase the pane size downward by 5 units.
 --    - LEADER + UpArrow: Increase the pane size upward by 5 units.
 
--- 5. Status Line:
+-- 5. Status Line: + c: Create a new tab in the current pane's domain.
 --    - The status line indicates when the leader key is active, displaying an ocean wave emoji (🌊).
 
 -- Miscellaneous Configurations:
@@ -131,6 +131,7 @@ local colors = {
 }
 
 
+
 --[[
 ============================
 Border
@@ -179,7 +180,7 @@ config.keys = {
     },
     {
         mods = "LEADER",
-        key = "|",
+        key = "[",
         action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
     },
     {
