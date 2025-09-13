@@ -1,1 +1,1 @@
-require("arav.config.display")
+require("arav.config.options")
