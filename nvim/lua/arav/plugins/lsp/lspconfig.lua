@@ -78,30 +78,43 @@ return {
       capabilities = capabilities,
     })
 
-    vim.lsp.config("svelte", {
+    -- rust-analyzer LSP config with cargo fmt on save
+    vim.lsp.config("rust_analyzer", {
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            allFeatures = true,
+          },
+          check = {
+            command = "clippy",
+          },
+          checkOnSave = true,
+          inlayHints = {
+            typeHints = true,
+            parameterHints = true,
+            chainingHints = true,
+            closingBraceHints = true,
+          },
+        },
+      },
+    
       on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePost", {
-          pattern = { "*.js", "*.ts" },
-          callback = function(ctx)
-            -- Here use ctx.match instead of ctx.file
-            client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+        -- enable Neovim’s LSP inlay hints when the server attaches
+        if client.server_capabilities.inlayHintProvider then
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
+        -- run rustfmt (via LSP) every time you save a Rust file
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ async = false })
+            -- If you prefer `cargo fmt` directly instead of LSP formatting:
+            -- vim.fn.jobstart({ "cargo", "fmt" })
           end,
         })
       end,
     })
-
-    vim.lsp.config("graphql", {
-      filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    })
-
-    vim.lsp.config("emmet_ls", {
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    })
-
-    vim.lsp.config("eslint", {
-      filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    })
-
+   
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
