@@ -64,6 +64,12 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     vim.diagnostic.config({
+      -- Global diagnostic settings (applies to all LSPs)
+      virtual_text = true,
+      underline = true,
+      update_in_insert = false,
+      severity_sort = true,
+
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = " ",
@@ -97,7 +103,7 @@ return {
           },
         },
       },
-    
+
       on_attach = function(client, bufnr)
         -- enable Neovim’s LSP inlay hints when the server attaches
         if client.server_capabilities.inlayHintProvider then
@@ -114,7 +120,7 @@ return {
         })
       end,
     })
-   
+
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
