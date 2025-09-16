@@ -43,6 +43,7 @@ local wezterm = require "wezterm"
 local config = {}
 
 -- Setting starting window size
+
 local initial_cols = 171
 local initial_rows = 44
 
@@ -99,37 +100,72 @@ config.color_scheme = color_scheme
 
 -- color scheme colors for easy access
 local scheme_colors = {
-    catppuccin = {
-        macchiato = {
-            rosewater = "f4dbd6",
-            flamingo = "f0c6c6",
-            pink = "f5bde6",
-            mauve = "c6a0f6",
-            red = "ed8796",
-            maroon = "ee99a0",
-            peach = "#f5a97f",
-            yellow = "#eed49f",
-            green = "#a6da95",
-            teal = "#8bd5ca",
-            sky = "#91d7e3",
-            sapphire = "#7dc4e4",
-            blue = "#8aadf4",
-            lavender = "#b7bdf8",
-            text = "#cad3f5",
-            crust = "#181926",
-        }
+  catppuccin = {
+    macchiato = {
+      rosewater = "#f4dbd6",
+      flamingo = "#f0c6c6",
+      pink = "#f5bde6",
+      mauve = "#c6a0f6",
+      red = "#ed8796",
+      maroon = "#ee99a0",
+      peach = "#f5a97f",
+      yellow = "#eed49f",
+      green = "#a6da95",
+      teal = "#8bd5ca",
+      sky = "#91d7e3",
+      sapphire = "#7dc4e4",
+      blue = "#8aadf4",
+      lavender = "#b7bdf8",
+      text = "#cad3f5",
+      crust = "#181926",
     }
+  },
+
+  amber = {
+    background = "#0C0C0C",
+    black = "#0C0C0C",
+    blue = "#0037DA",
+    brightBlack = "#767676",
+    brightBlue = "#3B78FF",
+    brightCyan = "#61D6D6",
+    brightGreen = "#16C60C",
+    brightPurple = "#B4009E",
+    brightRed = "#E74856",
+    brightWhite = "#F2F2F2",
+    brightYellow = "#F9F1A5",
+    cursorColor = "#FFFFFF",
+    cyan = "#3A96DD",
+    foreground = "#E97801",
+    green = "#13A10E",
+    purple = "#881798",
+    red = "#C50F1F",
+    selectionBackground = "#FFFFFF",
+    white = "#CCCCCC",
+    yellow = "#C19C00",
+  }
 }
 
-local colors = {
-    border = scheme_colors.catppuccin.macchiato.lavender,
-    tab_bar_active_tab_fg = scheme_colors.catppuccin.macchiato.mauve,
-    tab_bar_active_tab_bg = scheme_colors.catppuccin.macchiato.crust,
-    tab_bar_text = scheme_colors.catppuccin.macchiato.crust,
-    arrow_foreground_leader = scheme_colors.catppuccin.macchiato.lavender,
-    arrow_background_leader = scheme_colors.catppuccin.macchiato.crust,
+--[[ Color  Schemes ]] --
+
+local catpuccin_theme = {
+  border = scheme_colors.catppuccin.macchiato.lavender,
+  tab_bar_active_tab_fg = scheme_colors.catppuccin.macchiato.mauve,
+  tab_bar_active_tab_bg = scheme_colors.catppuccin.macchiato.crust,
+  tab_bar_text = scheme_colors.catppuccin.macchiato.crust,
+  arrow_foreground_leader = scheme_colors.catppuccin.macchiato.lavender,
+  arrow_background_leader = scheme_colors.catppuccin.macchiato.crust,
 }
 
+local amber_theme = {
+  border                = scheme_colors.amber.foreground,
+  tab_bar_active_tab_fg = scheme_colors.amber.foreground,
+  tab_bar_active_tab_bg = scheme_colors.amber.background,
+  tab_bar_text          = scheme_colors.amber.white,
+  arrow_foreground_leader = scheme_colors.amber.brightYellow,
+  arrow_background_leader = scheme_colors.amber.background,
+}
+
+local colors = catpuccin_theme -- Change What this is equal to to change the theme
 
 
 --[[
