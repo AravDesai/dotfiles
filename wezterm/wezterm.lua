@@ -136,7 +136,6 @@ local scheme_colors = {
     cyan = "#3A96DD",
     foreground = "#E97801",
     green = "#13A10E",
-    name = "Amber-theme",
     purple = "#881798",
     red = "#C50F1F",
     selectionBackground = "#FFFFFF",
@@ -157,8 +156,12 @@ local catpuccin_theme = {
 }
 
 local amber_theme = {
-  border = scheme_colors.amber.background,
-  
+  border                = scheme_colors.amber.foreground,
+  tab_bar_active_tab_fg = scheme_colors.amber.foreground,
+  tab_bar_active_tab_bg = scheme_colors.amber.background,
+  tab_bar_text          = scheme_colors.amber.white,
+  arrow_foreground_leader = scheme_colors.amber.brightYellow,
+  arrow_background_leader = scheme_colors.amber.background,
 }
 
 local colors = catpuccin_theme -- Change What this is equal to to change the theme
