@@ -43,8 +43,8 @@ local wezterm = require "wezterm"
 local config = {}
 
 -- Setting starting window size
-initial_cols = 300
-initial_rows = 50
+local initial_cols = 171
+local initial_rows = 44
 
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
