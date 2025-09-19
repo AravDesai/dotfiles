@@ -1,11 +1,13 @@
 return {
-  "benlubas/molten-nvim",
-  dependencies = {{'willothy/wezterm.nvim', config = true}},
-  build = ":UpdateRemotePlugins",
-  config = function()
-    local molten = require("molten-nvim")
-    vim.g.molten_image_provider = "image.nvim"
-    vim.g.molten_output_win_max_height = 20
-    --molten.setup({})
-  end
+    {
+        "benlubas/molten-nvim",
+        version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+        dependencies = { "3rd/image.nvim" },
+        build = ":UpdateRemotePlugins",
+        config = function()
+          -- these are examples, not defaults. Please see the readme
+          vim.g.molten_image_provider = "image.nvim"
+          vim.g.molten_output_win_max_height = 20
+        end,
+    },
 }
