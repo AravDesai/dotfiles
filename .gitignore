@@ -1,0 +1,5 @@
+nvim/python_nvim/bin/
+nvim/python_nvim/lib/
+nvim/python_nvim/include/
+nvim/python_nvim/share/
+nvim/python_nvim/pyvenv.cfg
