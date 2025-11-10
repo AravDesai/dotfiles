@@ -16,3 +16,6 @@ function cd
         ls -ah --color=auto
     end
 end
+
+set -Ux ANDROID_NDK_HOME /opt/android-ndk
+
