@@ -18,4 +18,4 @@ function cd
 end
 
 set -Ux ANDROID_NDK_HOME /opt/android-ndk
-
+set -x OPENSSL_DIR /usr
